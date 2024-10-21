@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="bootstrap.css">
+    <script src="jquery.js"></script>
+    <script src="popper.js"></script>
+    <script src="bootstrap.js"></script>
+    <link rel="stylesheet" href="final_ödev3.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+   
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <!-- Yapılacaklar Listesi Başlangıcı -->
+        <h2 class="text-center">Yapılacaklar Listesi</h2>
+        
+        <!-- Yeni Görev Ekleme Alanı Başlangıcı -->
+        <div class="input-group mb-3">
+            <input type="text" id="taskInput" class="form-control" placeholder="Yapılacak İş Ekle">
+            <div class="input-group-append">
+                <button class="btn btn-primary" onclick="yapilacakEkle()">Ekle</button>
+            </div>
+        </div>
+        <!-- Yeni Görev Ekleme Alanı Sonu -->
+        
+        <!-- Görev Filtrasyon Butonları Başlangıcı -->
+        <div class="btn-group mb-3">
+            <button class="btn btn-secondary" onclick="gorevleriGoster('hepsi')">Hepsi</button>
+            <button class="btn btn-secondary" onclick="gorevleriGoster('devamEden')">Devam Eden</button>
+            <button class="btn btn-secondary" onclick="gorevleriGoster('biten')">Biten</button>
+            <button class="btn btn-temizle" onclick="tumunuTemizle()">Temizle</button>
+        </div>
+        <!-- Görev Filtrasyon Butonları Sonu -->
+        
+        <!-- Görev Listesi Başlangıcı -->
+        <ul id="taskList" class="list-group">
+            <!-- Görevler buraya eklenecek -->
+        </ul>
+        <!-- Görev Listesi Sonu -->
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.8/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+        function yapilacakEkle() {
+            var yeniGorev = $("#taskInput").val();
+            if (yeniGorev !== "") {
+                var yeniGorevHtml = getGorevHTML(yeniGorev);
+                $("#taskList").append(yeniGorevHtml);
+                $("#taskInput").val("");
+            }
+        }
+
+        function duzenleGorev(button) {
+            var gorevMetni = $(button).parent().siblings("span").text().trim();
+            $("#taskInput").val(gorevMetni);
+            $(button).parent().parent().remove();
+        }
+
+        function silGorev(button) {
+            $(button).parent().parent().remove();
+        }
+
+        function tamamlandiGorev(checkbox) {
+            var spanElement = $(checkbox).siblings("span");
+            spanElement.toggleClass("tamamlandi", checkbox.checked);
+        }
+
+        function gorevleriGoster(tur) {
+            var listItems = $("#taskList").children("li");
+            listItems.show();
+
+            if (tur === 'devamEden') {
+                listItems.filter(".tamamlandi").remove();
+            } else if (tur === 'biten') {
+                listItems.not(".tamamlandi").remove();
+            }
+        }
+
+        function tumunuTemizle() {
+            $("#taskList").empty();
+        }
+
+        function getGorevHTML(gorevMetni) {
+            return "<li class='list-group-item'>" +
+                "<input type='checkbox' onchange='tamamlandiGorev(this)'>" +
+                "<span>" + gorevMetni + "</span>" +
+                "<div class='btn-group float-right'>" +
+                "<button class='btn btn-info' onclick='duzenleGorev(this)'>Düzenle</button>" +
+                "<button class='btn btn-danger' onclick='silGorev(this)'>Sil</button>" +
+                "</div></li>";
+        }
+    </script>
+
+    <style>
+        .tamamlandi {
+            text-decoration: line-through;
+        }
+    </style>
+    
+</body>
+
+</html>

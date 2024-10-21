@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yapilacaklar Listesi</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="bootstrap.css">
+    <!-- jQuery CDN -->
+    <script src="jquery-3.7.1.min.js"></script>
+    <!-- Bootstrap JS ve Popper.js CDN'leri -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="bootstrap.js"></script>
+    <!-- Özel JavaScript dosyası -->
+    <script src="app.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="final_ödev3.js"></script>
+    <link rel="stylesheet" href="final_ödev3.css">
+</head>
+<body>
+
+    <div class="container">
+        <!-- Yapılacaklar Listesi Başlangıcı -->
+        <h2 class="text-center">Yapilacaklar Listesi</h2>
+        
+        <!-- Yeni Görev Ekleme Alanı Başlangıcı -->
+        <div class="input-group mb-3">
+            <input type="text" id="taskInput" class="form-control" placeholder="Yapılacak İş Ekle">
+            <div class="input-group-append">
+                <button class="btn btn-primary" onclick="yapilacakEkle()">Ekle</button>
+            </div>
+        </div>
+        <!-- Yeni Görev Ekleme Alanı Sonu -->
+        
+        <!-- Görev Filtrasyon Butonları Başlangıcı -->
+        <div class="btn-group mb-3">
+            <button class="btn btn-secondary" onclick="gorevleriGoster('hepsi')">Hepsi</button>
+            <button class="btn btn-secondary" onclick="DevamEden('devamEden')">Devam Eden</button>
+            <button class="btn btn-secondary" onclick="BitenGorev('biten')">Biten</button>
+            <button class="btn btn-temizle" onclick="tumunuTemizle()">Temizle</button>
+        </div>
+        <!-- Görev Filtrasyon Butonları Sonu -->
+        
+        <!-- Görev Listesi Başlangıcı -->
+        <ul id="taskList" class="list-group">
+            <!-- Görevler buraya eklenecek -->
+        </ul>
+        <!-- Görev Listesi Sonu -->
+    </div>
+</body>
+
+</html>

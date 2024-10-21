@@ -1,0 +1,120 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f1f1f1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: url('yapilacaklistefoto.jpg'); /* Arkaplan resminin dosya yolu */
+    background-size: cover; /* Resmi ekran boyutuna sığdır */
+    background-position: center; /* Resmi ekranda ortala */
+    background-repeat: repeat; /* Resmi tekrar et */
+    background-color: rgba(255, 255, 255, 0.8);
+  }
+  
+  .container {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    width: 400px;
+  }
+  
+  h2 {
+    color: #3498db;
+    text-align: center;
+  }
+  
+  .input-group {
+    margin-bottom: 20px;
+  }
+  
+  .form-control {
+    border-radius: 5px;
+    padding: 10px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  #ekleBtn,
+#temizleBtn {
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: transform 0.3s; /* Eklediğimiz transition özelliği */
+  margin-bottom: 10px; /* Butonlar arasında biraz boşluk bırakmak için ekledim */
+}
+
+#ekleBtn{width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.3s; /* Eklediğimiz transition özelliği */
+    margin-bottom: 10px; /* Butonlar arasında biraz boşluk bırakmak için ekledim */}
+#temizleBtn {
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: transform 0.3s; /* Eklediğimiz transition özelliği */
+  margin-bottom: 10px; /* Butonlar arasında biraz boşluk bırakmak için ekledim */
+}
+
+#ekleBtn {
+  background-color: #2ecc71;
+  color:blueviolet;
+  border: none;
+}
+
+#temizleBtn {
+  background-color: #e74c3c;
+  color:blue;
+  border: none;
+}
+
+/* Mouse üzerine gelindiğinde butonun boyutunu büyüt */
+#ekleBtn:hover{transform: scale(1.5);}
+#temizleBtn:hover {
+  transform: scale(1.5);
+}
+  
+  .list-group-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    padding: 15px;
+    border-radius: 5px;
+    background-color: #ecf0f1;
+  }
+  
+  .list-group-item span {
+    font-weight: bold;
+  }
+  
+  .list-group-item .badge-pill {
+    cursor: pointer;
+  }
+  
+  .list-group-item.devamEden {
+    background-color: #3498db;
+    color: #fff;
+  }
+  
+  .list-group-item.biten {
+    background-color: #2ecc71;
+    color: #fff;
+  }
+  
+  @media (max-width: 576px) {
+    .container {
+      width: 100%;
+    }
+  }
+  .tamamlandi {
+    text-decoration: line-through;
+}
+  
